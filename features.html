@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/ueca-react-website-public/favicon.svg" />
+  <meta name="theme-color" content="#0b1016" />
+
+  <!-- Per-page title and description are written by the AppHead service on every route change. -->
+  <title>UECA-React</title>
+  <meta name="description" content="UECA-React: build React applications without useState, useEffect or Context. One component pattern, a typed message bus, bindings and a Trace Viewer." />
+
+  <script>
+    // No-flash theme restore: stamp <html data-theme> before first paint, otherwise a light reload shows a
+    // dark page until the bundle's CSS lands. Dark unless the reader chose light. Keep the key and the default
+    // in sync with THEME_STORAGE_KEY and the constr of core/appSettings.tsx.
+    (function () {
+      var theme;
+      try {
+        theme = localStorage.getItem("ueca-site-theme");
+      } catch (e) { /* private browsing or blocked site data */ }
+      document.documentElement.setAttribute("data-theme", theme === "light" ? "light" : "dark");
+    })();
+  </script>
+
+  <style>
+    /* Literal fallbacks so the page ground is right before the bundle's tokens arrive. :where() keeps
+       specificity at zero, so themes.css always wins once it loads. */
+    :where(html) { background: #0b1016; color: #dce4ec; }
+    :where(html[data-theme="light"]) { background: #f3f5f8; color: #111b26; }
+  </style>
+  <script type="module" crossorigin src="/ueca-react-website-public/assets/index-N1iFMMJy.js"></script>
+  <link rel="stylesheet" crossorigin href="/ueca-react-website-public/assets/index-Ds5pqUKT.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
