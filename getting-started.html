@@ -12,15 +12,19 @@
   <meta name="description" content="UECA-React: build React applications without useState, useEffect or Context. One component pattern, a typed message bus, bindings and a Trace Viewer." />
 
   <script>
-    // No-flash theme restore: stamp <html data-theme> before first paint, otherwise a light reload shows a
-    // dark page until the bundle's CSS lands. Dark unless the reader chose light. Keep the key and the default
-    // in sync with THEME_STORAGE_KEY and the constr of core/appSettings.tsx.
+    // No-flash theme restore: stamp <html data-theme> and the theme-color above before first paint, otherwise a
+    // light reload shows a dark page, under a dark browser toolbar, until the bundle's CSS lands. Dark unless the
+    // reader chose light. Keep the key, the default and the colours in sync with THEME_STORAGE_KEY, DEFAULT_THEME and
+    // THEME_COLORS in core/appSettings.tsx.
     (function () {
       var theme;
       try {
         theme = localStorage.getItem("ueca-site-theme");
       } catch (e) { /* private browsing or blocked site data */ }
-      document.documentElement.setAttribute("data-theme", theme === "light" ? "light" : "dark");
+      var light = theme === "light";
+      document.documentElement.setAttribute("data-theme", light ? "light" : "dark");
+      var themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.setAttribute("content", light ? "#f3f5f8" : "#0b1016");
     })();
   </script>
 
@@ -30,7 +34,7 @@
     :where(html) { background: #0b1016; color: #dce4ec; }
     :where(html[data-theme="light"]) { background: #f3f5f8; color: #111b26; }
   </style>
-  <script type="module" crossorigin src="/ueca-react-website-public/assets/index-N1iFMMJy.js"></script>
+  <script type="module" crossorigin src="/ueca-react-website-public/assets/index-jLxkoA22.js"></script>
   <link rel="stylesheet" crossorigin href="/ueca-react-website-public/assets/index-Ds5pqUKT.css">
 </head>
 
